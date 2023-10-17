@@ -1,0 +1,108 @@
+git push -u origin main
+<meta charset="utf-8">
+
+  <h> " Muito bem,agora memorize uma carta, e em seguida, escreva apanas a fileira onde ela se encontra<br>
+     Por exemplo: se for na primeira escreva apenas (primeira), se for na segunda (segunda), <br> se for na terceira (terceira),
+     agora clique no botão" </h><br><br>
+
+
+<input>
+<button>Continue aqui</button> 
+ 
+
+<script>
+
+function pulalinha() {
+
+document.write("<br>");
+document.write("<br>");
+}
+
+ function mostra(frase) {
+
+document.write(frase);
+pulalinha();
+}
+
+var colunaUmP  = "Primeira [ A &diams;] [10 &clubs;][ 7 &hearts;][ 2 &diams;][ k &hearts;] [ 4 &diams;] [ J &clubs;]<br>Segunda [J &hearts; ][ 6 &clubs;][ 7 &diams;][ 2 &hearts;][ 8 &spades;][ 3 &clubs;][ 5 &hearts;]<br>Terceira [ 10 &spades;] [ 6 &spades;][ A &spades;][ 3 &spades;][ 6 &diams;][ 2 &clubs;][ 4 &clubs;]</br>";
+
+var colunaUmPdois =  " Primeira [J &hearts;] [2 &hearts;] [5 &hearts;] [7 &hearts;] [4 &diams;] [6 &spades;] [6 &diams;]<br>Segunda [6 &clubs;] [8&spades;] [A &diams;] [2 &diams;] [J &clubs;] [A &spades;] [2 &clubs;]<br>Terceira [7 &diams;] [3 &clubs;] [10 &clubs;] [K &hearts;] [10 &spades;] [3 &spades;] [4 &clubs;]</br>";
+
+
+var colunaUmPtres = " Primeira fileira [J &hearts;] [2 &hearts;] [5 &hearts;] [7 &hearts;] [4 &diams;] [6 &spades;] [6 &diams;]<br>Segunda fileira [6 &clubs;] [8 &spades;] [A &diams;] [2 &diams;] [J &clubs;] [A &spades;] [2 &clubs;]<br>Terceira fileira [7 &diams;] [3 &clubs;] [10 &clubs;] [K &hearts;] [10 &spades;] [3 &spades;] [4 &clubs;]</br>";
+
+
+
+// variavel para identificar qula fileira é escolhida//
+ var segredo = ["primeira","Primeira"];
+ var segredoDois ="segunda";
+ var segredoTres ="terceira";
+
+
+ var input = document.querySelector("input");
+ input.focus();
+ var button = document.querySelector("button");
+    button.onclick = verifica;
+
+//primeira coluna de cartas//
+  pulalinha();
+
+  mostra (colunaUmP);
+ 
+
+// funcao verifica segredo para analizar a primeira fileira de cartas// 
+
+function verifica() {
+ 
+if (input.value == segredo[0] || input.value == segredo[1]) {
+        
+ mostra ("Muito bem! Agora localize sua carta por favor e escreva em qual fileira ela se encontra agora!:<br>na (primeira),(segunda) ou (terceira).</br>");
+    
+ let campo = document.createElement("input");
+ campo.name = "";
+ campo.placeholder = "";
+ document.body.appendChild(campo);
+
+ let botao = document.createElement("button");
+ botao.innerHTML = "Clique aqui!";
+ document.body.appendChild(botao);
+
+  pulalinha();
+  
+  if (input.value == segredo[0] || input.value == segredo[1]) {
+
+        mostra (colunaUmPdois);
+             
+}}   
+    else {
+
+    if (input.value == segredoDois) {
+        
+    mostra ("Você está indo muito bem! agora localize sua carta, esta é a ultima rodada: Escreva em qual fileira ela se encontra agora:<br>na (primeira),(segunda) ou (terceira).</br>");
+    
+    let campo = document.createElement("input");
+    campo.name = "";
+    campo.placeholder = "";
+    document.body.appendChild(campo);
+
+    let botao = document.createElement("button");
+    botao.innerHTML = "Clique aqui!";
+    document.body.appendChild(botao);
+}
+    pulalinha();
+  
+if (input.value == segredoDois) {
+
+    mostra (colunaUmPtres);
+    mostra (colunaUmStres);
+    mostra (colunaUmTtres);   
+}
+} 
+        input.value = "";
+        input.focus();
+}
+
+    
+
+
+</script>
